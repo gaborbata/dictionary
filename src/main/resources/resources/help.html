@@ -1,0 +1,58 @@
+<html>
+  <body text="#000000" bgcolor="#ffffff">
+    <center><h2>Searching with wildcards</h2></center>
+    <center><p>The following table shows the wildcard characters that you can use to search words in the dictionary:</p></center>
+    <table width="650" border="0" cellpadding="4" cellspacing="4" align="center">
+      <tr bgcolor="#dddddd">
+        <td><b>Wildcard</b></td>
+        <td><b>Description</b></td>
+        <td><b>Example</b></td>
+        <td><b>Search result</b></td>
+      </tr>
+      <tr>
+        <td>?</td>
+        <td>Matches any single alphanumeric character.</td>
+        <td>apple?</td>
+        <td>apples or applet</td>
+      </tr>
+      <tr bgcolor="#eeeeee">
+        <td>*</td>
+        <td>Matches zero or more alphanumeric characters.</td>
+        <td>app*e</td>
+        <td>applause, apple, appropriate, and so on</td>
+      </tr>
+      <tr>
+        <td>[&nbsp;]</td>
+        <td>Matches any one of the characters in the brackets.</td>
+        <td>sl[iau]m</td>
+        <td>slim, slam, or slum</td>
+      </tr>
+      <tr bgcolor="#eeeeee">
+        <td>(&nbsp;)</td>
+        <td>Matches any one of a set of patterns separated by a pipe.</td>
+        <td>read(er|ing|y)</td>
+        <td>reader, reading, or ready</td>
+      </tr>
+      <tr>
+        <td>^</td>
+        <td>Matches any character not in the set.</td>
+        <td>sl[^ia]m</td>
+        <td>slum, but not slim or slam</td>
+      </tr>
+      <tr bgcolor="#eeeeee">
+        <td>-</td>
+        <td>Specifies a range for a single character in a set.</td>
+        <td>c[a-r]t</td>
+        <td>cat, cot, but not cut (that is, every word beginning with c, ending with t, and containing any single letter from a to r)</td>
+      </tr>
+    </table>
+    <br>
+    <center>
+      <p>
+        You can combine all of the above wildcards to produce more sophisticated searches.<br>
+        Each search result is limited to the first 1000 records.<br>
+        &nbsp;
+      </p>
+    </center>
+  </body>
+</html>

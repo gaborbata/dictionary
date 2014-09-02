@@ -1,0 +1,13 @@
+apply plugin: 'java'
+
+compileJava.options.encoding = 'UTF-8'
+sourceCompatibility = 1.6
+targetCompatibility = 1.6
+
+jar {
+    baseName = 'dictionary'
+    version = '0.3.8'
+    manifest {
+        attributes('Main-Class': 'metis.dictionary.Dictionary')
+    }
+}
