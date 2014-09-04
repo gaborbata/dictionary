@@ -4,7 +4,7 @@
   <groupId>metis</groupId>
   <artifactId>dictionary</artifactId>
   <packaging>jar</packaging>
-  <version>0.3.8-SNAPSHOT</version>
+  <version>0.3.8</version>
   <name>Metis Dictionary</name>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
