@@ -15,6 +15,13 @@ How to compile
 * Maven: `mvn clean install`
 * Gradle: `gradle clean build`
 
+Usage
+-----
+Java 6 or later is recommended to run the dictionary application. Most platforms have a mechanism to execute `.jar` files (e.g. double click the `dictionary-0.3.8.jar`).
+You can also run the application from the command line by typing:
+
+    java -jar dictionary-0.3.8.jar
+
 License
 -------
 Copyright (c) 2008-2012 Gabor Bata
