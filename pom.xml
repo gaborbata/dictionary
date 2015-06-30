@@ -12,6 +12,29 @@
   <build>
     <plugins>
       <plugin>
+        <groupId>org.codehaus.gmaven</groupId>
+        <artifactId>groovy-maven-plugin</artifactId>
+        <version>2.0</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>execute</goal>
+            </goals>
+            <configuration>
+              <source>
+                File file = new File('src/main/resources/resources/dictionary.data')
+                file.eachLine { line, count ->
+                  if (!line.startsWith(' ') || !line.endsWith(' ') || !line.contains(' :: ')) {
+                    throw new Exception("Incorrect data file format, line: ${count}, content:'${line}'")
+                  }
+                }
+              </source>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>2.5.1</version>
