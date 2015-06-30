@@ -23,7 +23,7 @@
             </goals>
             <configuration>
               <source>
-                File file = new File('src/main/resources/resources/dictionary.data')
+                File file = new File(basedir, 'src/main/resources/resources/dictionary.data')
                 file.eachLine { line, count ->
                   if (!line.startsWith(' ') || !line.endsWith(' ') || !line.contains(' :: ')) {
                     throw new Exception("Incorrect data file format, line: ${count}, content:'${line}'")
