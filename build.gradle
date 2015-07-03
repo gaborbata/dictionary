@@ -15,7 +15,7 @@ jar {
 task checkDataFileFormat << {
     File file = new File("${projectDir}/src/main/resources/resources/dictionary.data")
     file.eachLine { line, count ->
-        if (!line.startsWith(' ') || !line.endsWith(' ') || !line.contains(' :: ')) {
+        if (!(line ==~ / .+ :: .+ /)) {
             throw new GradleException("Incorrect data file format, line: ${count}, content:'${line}'")
         }
     }

@@ -25,7 +25,7 @@
               <source>
                 File file = new File(basedir, 'src/main/resources/resources/dictionary.data')
                 file.eachLine { line, count ->
-                  if (!line.startsWith(' ') || !line.endsWith(' ') || !line.contains(' :: ')) {
+                  if (!(line ==~ / .+ :: .+ /)) {
                     throw new Exception("Incorrect data file format, line: ${count}, content:'${line}'")
                   }
                 }
