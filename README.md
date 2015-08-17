@@ -6,7 +6,7 @@ Overview
 Metis Dictionary is a simple English-Hungarian dictionary application with regular expression support
 based on a [deterministic finite-state automata (DFA) implementation](http://www.brics.dk/automaton/).
 
-![Metis Dictionary](https://raw.githubusercontent.com/gaborbata/metis-dictionary/master/resources/dictionary-screenshot.png)
+![Metis Dictionary](https://raw.githubusercontent.com/gaborbata/metis-dictionary/master/resources/dictionary-capture.gif)
 
 *About the name: In Greek Mythology, Metis is the goddess of practical and intellectual wisdom.*
 
