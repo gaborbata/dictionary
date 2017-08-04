@@ -23,4 +23,4 @@ task checkDataFileFormat {
     }
 }
 
-build.dependsOn checkDataFileFormat
+check.dependsOn checkDataFileFormat
