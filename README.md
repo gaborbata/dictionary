@@ -1,6 +1,8 @@
 Metis Dictionary
 ================
 
+[![Build Status](https://travis-ci.org/gaborbata/metis-dictionary.svg?branch=master)](https://travis-ci.org/gaborbata/metis-dictionary)
+
 Overview
 --------
 Metis Dictionary is a simple English-Hungarian dictionary application with regular expression support
