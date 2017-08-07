@@ -1,7 +1,5 @@
-Metis Dictionary
+Metis Dictionary [![Build Status](https://travis-ci.org/gaborbata/metis-dictionary.svg?branch=master)](https://travis-ci.org/gaborbata/metis-dictionary)
 ================
-
-[![Build Status](https://travis-ci.org/gaborbata/metis-dictionary.svg?branch=master)](https://travis-ci.org/gaborbata/metis-dictionary)
 
 Overview
 --------
