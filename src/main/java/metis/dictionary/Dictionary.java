@@ -60,8 +60,6 @@ public class Dictionary {
     public static void main(final String[] args) {
 
         try {
-            UIManager.put("Button.arc", 0);
-            UIManager.put("Component.arc", 0);
             FlatLightLaf.install();
             FlatLaf lookAndFeel = new FlatLightLaf();
             UIManager.setLookAndFeel(lookAndFeel);

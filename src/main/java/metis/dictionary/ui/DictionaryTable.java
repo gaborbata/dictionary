@@ -82,7 +82,7 @@ public class DictionaryTable extends JTable {
     public Component prepareRenderer(TableCellRenderer renderer, int row, int column) {
         Component component = super.prepareRenderer(renderer, row, column);
         if (!isCellSelected(row, column)) {
-            if (row % 2 != 0) {
+            if (row % 2 == 0) {
                 component.setBackground(ALTERNATIVE_COLOR);
             } else {
                 component.setBackground(getBackground());
