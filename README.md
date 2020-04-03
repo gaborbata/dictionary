@@ -24,4 +24,4 @@ You can also run the application from the command line by typing:
 
 License
 -------
-![License for Metis Dictionary](https://raw.githubusercontent.com/gaborbata/metis-dictionary/src/main/resources/resources/license.txt)
+[License for Metis Dictionary](https://raw.githubusercontent.com/gaborbata/metis-dictionary/master/src/main/resources/resources/license.txt)
