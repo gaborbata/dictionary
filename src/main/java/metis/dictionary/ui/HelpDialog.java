@@ -29,8 +29,8 @@
 
 package metis.dictionary.ui;
 
+import com.formdev.flatlaf.ui.FlatButtonBorder;
 import java.awt.BorderLayout;
-import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dialog;
 import java.awt.FlowLayout;
@@ -64,7 +64,7 @@ public class HelpDialog extends JDialog implements ActionListener {
 
     /** Border for buttons. */
     private static final Border BORDER_BUTTON = BorderFactory.createCompoundBorder(
-            BorderFactory.createEtchedBorder(new Color(0xffffff), new Color(0x000000)),
+            new FlatButtonBorder(),
             BorderFactory.createEmptyBorder(3, 8, 3, 8));
 
     /**

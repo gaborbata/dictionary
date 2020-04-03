@@ -55,17 +55,14 @@ public final class Searcher {
     private static final int SEARCH_LIMIT = 1000;
 
     /** Result comparator. */
-    private static final Comparator<String[]> RESULT_COMPARATOR = new Comparator<String[]>() {
-        @Override
-        public int compare(String[] array1, String[] array2) {
-            int ret;
-            if (array1[0].equals(array2[0])) {
-                ret = array1[1].compareToIgnoreCase(array2[1]);
-            } else {
-                ret = array1[0].compareToIgnoreCase(array2[0]);
-            }
-            return ret;
+    private static final Comparator<String[]> RESULT_COMPARATOR = (array1, array2) -> {
+        int ret;
+        if (array1[0].equals(array2[0])) {
+            ret = array1[1].compareToIgnoreCase(array2[1]);
+        } else {
+            ret = array1[0].compareToIgnoreCase(array2[0]);
         }
+        return ret;
     };
 
     private Searcher() {
@@ -101,7 +98,7 @@ public final class Searcher {
      * @throws Throwable if any error occurred
      */
     public static List<String[]> search(final String input, final boolean firstLanguage) throws Throwable {
-        List<String[]> results = new ArrayList<String[]>();
+        List<String[]> results = new ArrayList<>();
 
         String inputText = transformInputText(input).trim();
         if (inputText.isEmpty()) {

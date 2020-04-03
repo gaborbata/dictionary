@@ -29,14 +29,13 @@
 
 package metis.dictionary.util;
 
+import dk.brics.automaton.Automaton;
+import dk.brics.automaton.RegExp;
+import dk.brics.automaton.RunAutomaton;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-
-import metis.dictionary.regex.Automaton;
-import metis.dictionary.regex.RegExp;
-import metis.dictionary.regex.RunAutomaton;
 
 /**
  * An engine that performs match operations on a character sequence by interpreting a pattern.
@@ -63,7 +62,7 @@ public class MatcherAdapter {
      * Attempts to match the entire input sequence against the pattern.
      *
      * @param input The character sequence to be matched
-     * @return <code>true</code> if, and only if, the entire input sequence matches this matcher's pattern
+     * @return <code>true</code> if, and only if, the entire input sequence matches this matcher pattern
      */
     public boolean matches(final String input) {
         return this.automaton.run(input);
@@ -77,10 +76,10 @@ public class MatcherAdapter {
      * @return an automaton which ignores upper/lower case characters
      */
     private Automaton ignoreCase(final Automaton a, final String pattern) {
-        Map<Character, Set<Character>> map = new HashMap<Character, Set<Character>>();
+        Map<Character, Set<Character>> map = new HashMap<>();
         for (char ch : pattern.toCharArray()) {
             if (Character.isLetter(ch) && !map.containsKey(ch)) {
-                Set<Character> ws = new HashSet<Character>();
+                Set<Character> ws = new HashSet<>();
                 char upper = Character.toUpperCase(ch);
                 char lower = Character.toLowerCase(ch);
                 ws.add(upper);

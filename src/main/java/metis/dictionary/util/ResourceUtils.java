@@ -33,9 +33,13 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.ImageIcon;
+import metis.dictionary.ui.SvgImageIcon;
 
 /**
  * Class for loading resources from classpath.
@@ -44,12 +48,11 @@ import javax.swing.ImageIcon;
  *
  */
 public final class ResourceUtils {
-
-    private static final String ENCODING = "UTF-8";
+    private static final Logger LOG = Logger.getLogger(ResourceUtils.class.getName());
 
     private static final String RESOURCE_PATH = "resources/";
 
-    private static final String IMAGE_EXTENSION = ".png";
+    private static final String IMAGE_EXTENSION = ".svg";
 
     private ResourceUtils() {
         // utility class
@@ -61,9 +64,9 @@ public final class ResourceUtils {
 
     public static ImageIcon getIcon(String name) {
         try {
-            return new ImageIcon(ResourceUtils.class.getClassLoader().getResource(RESOURCE_PATH + name + IMAGE_EXTENSION));
+            return new SvgImageIcon(RESOURCE_PATH + name + IMAGE_EXTENSION);
         } catch (Exception e) {
-            System.err.println("Image not found: " + name);
+            LOG.log(Level.WARNING, "Could not get image: " + name, e);
             return null;
         }
     }
@@ -75,7 +78,7 @@ public final class ResourceUtils {
             properties.load(is);
             is.close();
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.log(Level.SEVERE, "Could not load application properties", e);
         }
         return properties;
     }
@@ -85,20 +88,20 @@ public final class ResourceUtils {
         BufferedReader bufferedReader = null;
         try {
             InputStream is = getResourceAsStream(name);
-            bufferedReader = new BufferedReader(new InputStreamReader(is, ENCODING));
+            bufferedReader = new BufferedReader(new InputStreamReader(is, StandardCharsets.UTF_8));
             String line;
             while ((line = bufferedReader.readLine()) != null) {
                 builder.append(line).append('\n');
             }
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.log(Level.SEVERE, "Could not load application resource", e);
         } finally {
             try {
                 if (bufferedReader != null) {
                     bufferedReader.close();
                 }
             } catch (IOException e) {
-                e.printStackTrace();
+                LOG.log(Level.SEVERE, "Could not close application resource", e);
             }
         }
         return builder.toString();

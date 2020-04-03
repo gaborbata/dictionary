@@ -38,11 +38,9 @@ import java.util.List;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
-import javax.swing.BorderFactory;
 import javax.swing.JComponent;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
-import javax.swing.border.Border;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableCellRenderer;
 
@@ -58,10 +56,6 @@ public class DictionaryTable extends JTable {
 
     /** Alternate row color. */
     public static final Color ALTERNATIVE_COLOR = new Color(0xeeeeee);
-
-    /** Selected row border. */
-    public static final Border SELECTED_BORDER =
-        BorderFactory.createCompoundBorder(BorderFactory.createMatteBorder(1, 0, 1, 0, new Color(0x7a96b0)), BorderFactory.createEmptyBorder(0, 1, 0, 1));
 
     /** Creates a new dictionary table. */
     public DictionaryTable() {
@@ -93,8 +87,6 @@ public class DictionaryTable extends JTable {
             } else {
                 component.setBackground(getBackground());
             }
-        } else if (component instanceof JComponent) {
-            ((JComponent) component).setBorder(SELECTED_BORDER);
         }
         return component;
     }

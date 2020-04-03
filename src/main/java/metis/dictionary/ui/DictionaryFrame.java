@@ -29,6 +29,7 @@
 
 package metis.dictionary.ui;
 
+import com.formdev.flatlaf.ui.FlatButtonBorder;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -37,6 +38,8 @@ import java.awt.event.KeyEvent;
 import java.util.LinkedHashMap;
 import java.util.Map;
 import java.util.Properties;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
@@ -58,6 +61,7 @@ import metis.dictionary.util.ResourceUtils;
  *
  */
 public final class DictionaryFrame extends JFrame {
+    private static final Logger LOG = Logger.getLogger(DictionaryFrame.class.getName());
 
     private static final long serialVersionUID = 1L;
 
@@ -69,17 +73,14 @@ public final class DictionaryFrame extends JFrame {
 
     /** Border for buttons. */
     private static final Border BORDER_BUTTON = BorderFactory.createCompoundBorder(
-            BorderFactory.createEtchedBorder(new Color(0xffffff), new Color(0x000000)),
+            new FlatButtonBorder(),
             BorderFactory.createEmptyBorder(2, 4, 2, 4));
 
-    /** Border for buttons. */
-    private static final Border BORDER_INPUT = BorderFactory.createEtchedBorder(new Color(0xffffff), new Color(0x000000));
-
     /** The dictionary frame instance. */
-    private static volatile DictionaryFrame INSTANCE;
+    private static DictionaryFrame INSTANCE;
 
     /** Actions. */
-    private final Map<String, JButton> buttons = new LinkedHashMap<String, JButton>();
+    private final Map<String, JButton> buttons = new LinkedHashMap<>();
 
     /** Application properties */
     private final Properties properties;
@@ -118,7 +119,7 @@ public final class DictionaryFrame extends JFrame {
         try {
             setIconImage(ResourceUtils.getIcon("book").getImage());
         } catch (Exception e) {
-            e.printStackTrace();
+            LOG.log(Level.WARNING, "Could not set application icon", e);
         }
 
         // creating actions
@@ -130,10 +131,9 @@ public final class DictionaryFrame extends JFrame {
         this.properties = ResourceUtils.loadProperties("dictionary.prop");
         changeLanguage();
 
-        this.statusPanel.setText("Metis Dictionary v0.3.8 Copyright (c) 2008-2012 G\u00e1bor Bata");
+        this.statusPanel.setText("Metis Dictionary v0.3.9 Copyright (c) 2008-2020 G\u00e1bor Bata");
 
         // initialize north
-        this.inputField.setBorder(BORDER_INPUT);
         JPanel topPanel = new JPanel(new BorderLayout(5, 5));
         topPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
         topPanel.add(this.languageLabel, BorderLayout.WEST);
@@ -164,14 +164,9 @@ public final class DictionaryFrame extends JFrame {
         setVisible(true);
     }
 
-    /** Gets the dictionary frame instance. */
-    public static DictionaryFrame getInstance() {
+    public static synchronized DictionaryFrame getInstance() {
         if (INSTANCE == null) {
-            synchronized (DictionaryFrame.class) {
-                if (INSTANCE == null) {
-                    INSTANCE = new DictionaryFrame();
-                }
-            }
+            INSTANCE = new DictionaryFrame();
         }
         return INSTANCE;
     }
@@ -206,7 +201,7 @@ public final class DictionaryFrame extends JFrame {
      * Sets the state of the components on the application form and changes the
      * progress indicator.
      *
-     * @param processing sets the enabled/diabled state
+     * @param processing sets the enabled/disabled state
      */
     public void setProcessingState(final boolean processing) {
         for (JButton button : this.buttons.values()) {
