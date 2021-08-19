@@ -60,7 +60,6 @@ public class Dictionary {
     public static void main(final String[] args) {
 
         try {
-            FlatLightLaf.install();
             FlatLaf lookAndFeel = new FlatLightLaf();
             UIManager.setLookAndFeel(lookAndFeel);
         } catch (Exception e) {
