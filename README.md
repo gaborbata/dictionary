@@ -1,4 +1,4 @@
-Metis Dictionary [![Build Status](https://travis-ci.org/gaborbata/metis-dictionary.svg?branch=master)](https://travis-ci.org/gaborbata/metis-dictionary)
+Metis Dictionary [![Java CI with Gradle](https://github.com/gaborbata/metis-dictionary/workflows/Java%20CI%20with%20Gradle/badge.svg)](https://github.com/gaborbata/metis-dictionary/actions/workflows/gradle.yml)
 ================
 
 Overview

@@ -9,20 +9,20 @@ repositories {
 }
 
 dependencies {
-    compile group: 'dk.brics', name: 'automaton', version: '1.12-1'
-    compile group: 'com.formdev', name: 'flatlaf', version: '0.28'
-    compile group: 'com.formdev', name: 'svgSalamander', version: '1.1.2.1'
+    implementation group: 'dk.brics', name: 'automaton', version: '1.12-1'
+    implementation group: 'com.formdev', name: 'flatlaf', version: '0.28'
+    implementation group: 'com.formdev', name: 'svgSalamander', version: '1.1.2.1'
 }
 
 jar {
-    baseName = 'dictionary'
-    version = '0.3.9'
+    archiveBaseName = 'dictionary'
+    archiveVersion = '0.3.9'
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes('Main-Class': 'metis.dictionary.Dictionary')
     }
     from {
-        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
     }
     exclude '**/*.aut'
 }
