@@ -145,7 +145,7 @@ public class HelpDialog extends JDialog implements ActionListener {
         String command = event.getActionCommand();
         if ("close".equals(command)) {
             dispose();
-        } if ("license".equals(command)) {
+        } else if ("license".equals(command)) {
             new HelpDialog(this);
         }
     }

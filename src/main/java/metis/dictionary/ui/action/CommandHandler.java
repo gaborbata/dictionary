@@ -105,12 +105,12 @@ public class CommandHandler {
             };
 
             worker.execute();
-        } if (DictionaryFrame.COMMAND_CHANGE.equals(command)) {
+        } else if (DictionaryFrame.COMMAND_CHANGE.equals(command)) {
             frame.changeLanguage();
             handleCommand(DictionaryFrame.COMMAND_SEARCH);
-        } if (DictionaryFrame.COMMAND_HELP.equals(command)) {
+        } else if (DictionaryFrame.COMMAND_HELP.equals(command)) {
             new HelpDialog(frame);
-        } if (DictionaryFrame.COMMAND_EXIT.equals(command)) {
+        } else if (DictionaryFrame.COMMAND_EXIT.equals(command)) {
             System.exit(0);
         }
     }
