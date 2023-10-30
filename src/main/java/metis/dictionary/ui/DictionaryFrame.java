@@ -115,7 +115,7 @@ public final class DictionaryFrame extends JFrame {
 
     /** Creates the dictionary frame instance. */
     private DictionaryFrame() {
-        super("Metis Dictionary");
+        super("Dictionary");
         try {
             setIconImage(ResourceUtils.getIcon("book").getImage());
         } catch (Exception e) {
@@ -131,7 +131,7 @@ public final class DictionaryFrame extends JFrame {
         this.properties = ResourceUtils.loadProperties("dictionary.prop");
         changeLanguage();
 
-        this.statusPanel.setText("Metis Dictionary v0.3.9 Copyright (c) 2008-2020 G\u00e1bor Bata");
+        this.statusPanel.setText("Dictionary v0.4.0 Copyright (c) 2008-2023 G\u00e1bor Bata");
 
         // initialize north
         JPanel topPanel = new JPanel(new BorderLayout(5, 5));

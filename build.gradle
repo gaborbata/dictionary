@@ -1,8 +1,6 @@
 apply plugin: 'java'
 
 compileJava.options.encoding = 'UTF-8'
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
 
 repositories {
     mavenCentral()
@@ -10,13 +8,19 @@ repositories {
 
 dependencies {
     implementation group: 'dk.brics', name: 'automaton', version: '1.12-1'
-    implementation group: 'com.formdev', name: 'flatlaf', version: '0.28'
-    implementation group: 'com.formdev', name: 'svgSalamander', version: '1.1.2.1'
+    implementation group: 'com.formdev', name: 'flatlaf', version: '3.2.5'
+    implementation group: 'com.formdev', name: 'svgSalamander', version: '1.1.4'
+}
+
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = 1.8
 }
 
 jar {
     archiveBaseName = 'dictionary'
-    archiveVersion = '0.3.9'
+    archiveVersion = '0.4.0'
     duplicatesStrategy = DuplicatesStrategy.EXCLUDE
     manifest {
         attributes('Main-Class': 'metis.dictionary.Dictionary')

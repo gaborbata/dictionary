@@ -33,6 +33,8 @@ import com.formdev.flatlaf.FlatLaf;
 import com.formdev.flatlaf.FlatLightLaf;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.SwingUtilities;
 import javax.swing.UIManager;
 
@@ -60,6 +62,8 @@ public class Dictionary {
     public static void main(final String[] args) {
 
         try {
+            JFrame.setDefaultLookAndFeelDecorated(true);
+            JDialog.setDefaultLookAndFeelDecorated(true);
             FlatLaf lookAndFeel = new FlatLightLaf();
             UIManager.setLookAndFeel(lookAndFeel);
         } catch (Exception e) {
